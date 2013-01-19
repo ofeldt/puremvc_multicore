@@ -1,0 +1,76 @@
+= PureMCV MultiCore Ruby Port
+
+
+* PureMVC Homepage: http://puremvc.org
+* Project Homepage: http://trac.puremvc.org/PureMVC_Ruby/
+
+
+== DESCRIPTION:
+
+PureMVC is a lightweight framework for creating applications based upon the classic Model, View and Controller concept.
+
+=== MultiCore Version
+
+This variation supports modular programming, allowing the use of
+independent program modules each with their own independent PureMVC 'Core'.
+
+A Core is a set of the four main actors used in the Standard framework (Model, View, Controller and Facade). 
+This version of the framework uses Multitons instead of Singletons.
+Rather than storing a single instance of the class, a Multiton stores a map of instances.
+Each Core is referenced by an associated Multiton Key. The MultiCore Version of the framework was developed due to
+the widespread need for modular support in a world of ever-more ambitious
+Rich Internet Applications which must load and unload large pieces of functionality at runtime.
+
+For instance a PDA application might need to dynamically load and unload modules
+for managing task list, calendar, email, contacts, and files.
+
+
+== FEATURES/PROBLEMS:
+
+* Completely written in Ruby
+* Tested and fully working on:
+  * On Windows XP SP3 x86
+    * Ruby 1.8.6
+
+
+== SYNOPSIS:
+
+Load the gem:
+
+  require 'puremvc_multicore'
+
+
+== REQUIREMENTS:
+* rubygems
+
+=== Additional for automated testing
+* rspec (>= 1.2.9)
+
+=== Additional for code coverage
+* rcov  (>= 0.8.1.2.0)
+
+
+== INSTALL:
+
+On *nix systems you may need to prefix the command with sudo to get root
+privileges.
+
+=== Normal (insecure)
+
+  gem install puremvc_multicore
+
+=== Automated testing and C0 code coverage
+
+You can test this package through rspec on your system. First find the path
+where the gem was installed to:
+
+  gem which puremvc_multicore
+
+Go into the root directory of the installed gem and run the following command
+to start the test runner:
+
+  rake spec
+
+If something goes wrong you should be noticed through failing examples.
+Rspec will use Rcov (if installed) to generate C0 code coverage of the specs.
+The results will be saved in ./coverage as html files.
